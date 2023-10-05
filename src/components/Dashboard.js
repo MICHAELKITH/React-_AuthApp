@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return (
-    <div>Dashboard</div>
+    <div>Status: {props.loggedInStatus}</div>
   )
 }
 
