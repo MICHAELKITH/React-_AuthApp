@@ -12,6 +12,7 @@ export default class App extends Component {
       user: {},
     };
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
   checkingLogin() {
     axios
@@ -42,6 +43,12 @@ export default class App extends Component {
   componentDidMount() {
     this.checkingLogin();
   }
+  handleLogout(){
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+    })
+  }
   handleLogin(data) {
     this.setState({
       loggedInStatus: "Logged in",
@@ -60,6 +67,7 @@ export default class App extends Component {
                 <Home
                   {...props}
                   handleLogin={this.handleLogin}
+                  handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus}
                 />
               )}
